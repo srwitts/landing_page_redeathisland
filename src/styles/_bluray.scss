@@ -1,0 +1,53 @@
+@use 'variaveis';
+
+.bluray {
+    padding: 5.6vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    &__img {
+        max-width: 130%;
+    }
+
+    &__text__container {
+        padding: 0 2vw;
+
+        &__links {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+
+            &__item {
+                display: inline-block;
+                a {
+                    text-decoration: none;
+                    padding-right: 10px;
+                    display: block;
+
+                    &:hover {
+                        color: variaveis.$corTextoSecundario;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        display: block;
+
+        &__img {
+            max-width: 100%;
+        }
+
+        h2, p {
+            text-align: center;
+        }
+
+        &__text__container {
+            &__links {
+                justify-content: center;
+            }
+        }
+    }
+}

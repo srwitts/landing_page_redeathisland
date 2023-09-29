@@ -1,0 +1,40 @@
+@use 'variaveis';
+
+.characters {
+    padding: 5.6vw;
+
+    &__title {
+        text-align: center;
+    }
+
+    &__list {
+        display: flex;
+        justify-content: space-around;
+        gap: 32px;
+        padding-top: 32px;
+
+        @media (min-width: 360px) and (max-width: 767px) {
+            flex-direction: column;
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            flex-direction: column;
+        }
+
+        @media (min-width: 1024px) {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &__item {
+            max-width: 900px;
+            padding: 26px;
+            text-align: center;
+
+            &__img {
+                width: 100%;
+                margin-bottom: 12px;
+            }
+        }
+    }
+}

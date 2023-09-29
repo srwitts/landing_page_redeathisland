@@ -1,0 +1,135 @@
+@use 'variaveis';
+@use 'header';
+@use 'logo';
+@use 'characters';
+@use 'bluray';
+@use 'faq';
+@use 'footer';
+
+
+@font-face {
+    font-family: Plak;
+    src: url(../../assets/fonts/Plak\ W01\ Black\ Extra\ Condensed.woff2);
+    font-weight: 700;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Plak;
+    list-style: none;
+}
+
+body {
+    background-color: variaveis.$corDeFundo;
+}
+
+@mixin text($fontSize: 16px) {
+    font-size: $fontSize;
+    line-height: $fontSize + 10px;
+    color: variaveis.$corTextoPrincipal;
+}
+
+@mixin title($fontSize: 32px) {
+    @include text($fontSize);
+    color: variaveis.$corTextoSecundario;
+}
+
+.text {
+    @include text(30px);
+
+    @media (max-width: 768px) {
+        @include text(20px);
+    }
+}
+
+.text--small {
+    @include text(24px);
+
+    @media (max-width: 768px) {
+        @include text(16px);
+    }
+}
+
+.title {
+    @include title(60px);
+
+    @media (max-width: 768px) {
+        @include title(40px);
+    }
+}
+
+.title--small {
+    @include title(46px);
+
+    @media (max-width: 768px) {
+        @include title(26px);
+    }
+}
+
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    font-size: 28px;
+    color: variaveis.$corTextoSecundario;
+    text-transform: uppercase;
+    border-radius: 4px;
+    text-decoration: none;
+    padding: 8px 14px;
+    letter-spacing: 2px;
+    border: 1px solid variaveis.$corTextoSecundario;
+    cursor: pointer;
+
+    &--dark {
+        background-color: rgba(variaveis.$corDeFundoBotaoDark, 0.8);
+        border-color: variaveis.$corTextoSecundario;
+
+        &:hover {
+            background-color: variaveis.$corTextoSecundario;
+            color: variaveis.$corDeFundo;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 15px;
+            padding: 8px 10px;
+            height: 35px;
+            letter-spacing: 1px;
+        }
+    }
+}
+
+.image-text-section {
+    padding: 5.6vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    h2 {
+        padding: 16px 0;
+    }
+
+    @media (max-width: 768px) {
+        display: block;
+
+        h2 {
+            text-align: center;
+        }
+
+        .directed--text {
+            text-align: center;
+        }
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    &__text_container {
+        padding: 0 2vw;
+    }
+}
